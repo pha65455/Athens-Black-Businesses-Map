@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/AthensBlackBuisnesses_0.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[33.8525927709,-83.5353533126],[34.0782692709,-83.3096768126]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('https://api.mapbox.com/styles/v1/pha65455/cjeir3kog0xep2ro28oa3iw03/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicGhhNjU0NTUiLCJhIjoiY2plNjNhZHZqNWhpOTJ2dDN3YnR0NjR3cSJ9.tY1nI2GFdEJ2aF1gSnFycg', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function pop_AthensBlackBuisnesses_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Category'] !== null ? Autolinker.link(String(feature.properties['Category'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Address'] !== null ? Autolinker.link(String(feature.properties['Address'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['City'] !== null ? Autolinker.link(String(feature.properties['City'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Phone'] !== null ? Autolinker.link(String(feature.properties['Phone'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Website'] !== null ? Autolinker.link(String(feature.properties['Website'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Hours'] !== null ? Autolinker.link(String(feature.properties['Hours'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_AthensBlackBuisnesses_0_0(feature) {
+            switch(String(feature.properties['Category'])) {
+                case 'Automotive':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(22,229,112,0.76862745098)',
+            }
+                    break;
+                case 'Barber & Beauty':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(238,121,30,0.76862745098)',
+            }
+                    break;
+                case 'Bars & Night Life':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(176,74,209,0.76862745098)',
+            }
+                    break;
+                case 'Education':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,31,83,0.76862745098)',
+            }
+                    break;
+                case 'Financial Services':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(47,86,214,0.76862745098)',
+            }
+                    break;
+                case 'Fitness':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(222,117,214,0.76862745098)',
+            }
+                    break;
+                case 'Funeral Homes':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,55,151,0.76862745098)',
+            }
+                    break;
+                case 'Healthcare':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(40,22,231,0.76862745098)',
+            }
+                    break;
+                case 'Home repair and maintenance':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(101,193,203,0.76862745098)',
+            }
+                    break;
+                case 'Law':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(237,204,94,0.76862745098)',
+            }
+                    break;
+                case 'Lawn Maintenance':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,212,175,0.76862745098)',
+            }
+                    break;
+                case 'Media':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(74,209,32,0.76862745098)',
+            }
+                    break;
+                case 'Pet Sitting/Pet Store':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(218,117,108,0.76862745098)',
+            }
+                    break;
+                case 'Restaurant/Ice Cream':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,152,224,0.76862745098)',
+            }
+                    break;
+                case 'Retail/Shops':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(119,226,129,0.76862745098)',
+            }
+                    break;
+                case 'Social Work':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(200,217,42,0.76862745098)',
+            }
+                    break;
+                case 'Tech/Cellular':
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(124,49,228,0.76862745098)',
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_AthensBlackBuisnesses_0',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.76862745098)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(181,222,127,0.76862745098)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_AthensBlackBuisnesses_0');
+        map.getPane('pane_AthensBlackBuisnesses_0').style.zIndex = 400;
+        map.getPane('pane_AthensBlackBuisnesses_0').style['mix-blend-mode'] = 'normal';
+        var layer_AthensBlackBuisnesses_0 = new L.geoJson(json_AthensBlackBuisnesses_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_AthensBlackBuisnesses_0',
+            onEachFeature: pop_AthensBlackBuisnesses_0,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_AthensBlackBuisnesses_0_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_AthensBlackBuisnesses_0);
+        map.addLayer(layer_AthensBlackBuisnesses_0);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Athens Black Buisnesses <br /><table><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_Automotive0.png" /></td><td>Automotive</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_BarberBeauty1.png" /></td><td>Barber & Beauty</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_BarsNightLife2.png" /></td><td>Bars & Night Life</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_Education3.png" /></td><td>Education</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_FinancialServices4.png" /></td><td>Financial Services</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_Fitness5.png" /></td><td>Fitness</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_FuneralHomes6.png" /></td><td>Funeral Homes</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_Healthcare7.png" /></td><td>Healthcare</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_Homerepairandmaintenance8.png" /></td><td>Home repair and maintenance</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_Law9.png" /></td><td>Law</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_LawnMaintenance10.png" /></td><td>Lawn Maintenance</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_Media11.png" /></td><td>Media</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_PetSittingPetStore12.png" /></td><td>Pet Sitting/Pet Store</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_RestaurantIceCream13.png" /></td><td>Restaurant/Ice Cream</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_RetailShops14.png" /></td><td>Retail/Shops</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_SocialWork15.png" /></td><td>Social Work</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_TechCellular16.png" /></td><td>Tech/Cellular</td></tr><tr><td style="text-align: center;"><img src="legend/AthensBlackBuisnesses_0_17.png" /></td><td></td></tr></table>': layer_AthensBlackBuisnesses_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
